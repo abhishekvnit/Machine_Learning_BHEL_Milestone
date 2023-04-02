@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Milestone Prediction Model</title>
+        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+        <h1>Milestone prediction model- Sch BES</h1>
+        <form action="{{url_for('predict')}}" method="post">
+            <input type="text" name="Priceperweek" placeholder="Enter project rating" required="required">
+            <input type="text" name="Population" placeholder="Enter state code" required="required">
+            <input type="text" name="Monthlyincome" placeholder="Scope" required="required">
+            <input type="text" name="Averageparkingpermonth" placeholder="region" required="required">
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+        <br>
+        <br>
+        {{ prediction_text }}
+        <img src="data:image/png;base64, {{ plot_url }}">
+
+        
+        <h1>Milestone prediction model- Act BES </h1>
+        <form action="{{url_for('predict2')}}" method="post">
+            <input type="text" name="Priceperweek" placeholder="Enter project rating" required="required">
+            <input type="text" name="Population" placeholder="Enter state code" required="required">
+            <input type="text" name="Monthlyincome" placeholder="Scope" required="required">
+            <input type="text" name="Averageparkingpermonth" placeholder="region" required="required">
+            <input type="text" name="Bes_Sch" placeholder="Scheduled BES days" required="required">
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+        <br>
+        <br>
+        {{ prediction_text2 }}
+
+        <img src="data:image/png;base64, {{ plot_url1 }}">
+    </body>
+</html>
